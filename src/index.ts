@@ -1,12 +1,6 @@
-import express from 'express';
-const app = express();
+import 'dotenv/config';
+import App from './core/app';
 
-app.get('/', (req, res) => {
-  const name = process.env.NAME || 'World';
-  res.send(`Hello ${name}!`);
-});
+const app = new App();
 
-const port = parseInt(process.env.PORT || '3000');
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+app.listen();
