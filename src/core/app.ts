@@ -20,6 +20,9 @@ class App {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(prefix, routes);
+        this.app.get('/', (req, res) => {
+            res.send('Hello World!');
+        });
     }
 
     public listen(): void {

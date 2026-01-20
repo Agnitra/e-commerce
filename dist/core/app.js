@@ -21,6 +21,9 @@ var App = /** @class */ (function () {
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: true }));
         this.app.use(prefix_1.prefix, v1_1.default);
+        this.app.get('/', function (req, res) {
+            res.send('Hello World!');
+        });
     };
     App.prototype.listen = function () {
         this.app.listen(process.env.PORT || 3000, function () {
