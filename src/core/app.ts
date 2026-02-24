@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import compression from 'compression';
 import { prefix } from '../utils/prefix';
 import routes from '../api/v1';
 
@@ -16,6 +17,7 @@ class App {
     private configure(): void {
         this.app.use(cors());
         this.app.use(helmet());
+        this.app.use(compression());
         this.app.use(morgan('dev'));
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
